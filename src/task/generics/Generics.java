@@ -21,19 +21,20 @@ public class Generics {
     }
 
     public static <T> List<T> mergeLists(List<T> list1, List<T> list2) {
-        if (list1.isEmpty()||list1==null||list2.isEmpty()||list2==null){
+        if (list1.isEmpty() || list1 == null || list2.isEmpty() || list2 == null) {
             throw new IllegalArgumentException("Список не может быть пуст или равен null");
         }
-        List<T> merged=new ArrayList<>();
+        List<T> merged = new ArrayList<>();
         merged.addAll(list1);
         merged.addAll(list2);
         return merged;
     }
 
     public static <T> List<T> getUniqueElements(List<T> list) {
-        if (list.isEmpty()||list==null){
-            throw new IllegalArgumentException("Список не может быть пуст или равен null");}
-        Set<T> unique=new LinkedHashSet<>(list);
+        if (list.isEmpty() || list == null) {
+            throw new IllegalArgumentException("Список не может быть пуст или равен null");
+        }
+        Set<T> unique = new LinkedHashSet<>(list);
         return new ArrayList<>(unique);
     }
 }

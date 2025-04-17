@@ -61,11 +61,19 @@ public class Collection {
         return null;
     }
 
-    public void removeEntriesByValue(Map<String, Integer> map, int value) {
+    public Map<String, Integer> removeEntriesByValue(Map<String, Integer> map, int value) {
 //9. Удалить все записи из карты, у которых значение равно определенному значению.
-        if (map.containsValue(value)) {
-            map.remove(value);
+        List<String> remove = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == value) {
+                remove.add(entry.getKey());
+            }
         }
+
+        for (String key : remove) {
+            map.remove(key);
+        }
+        return map;
     }
 
     public void addToQueue(Queue<Integer> queue, int element) {
@@ -125,8 +133,8 @@ public class Collection {
             System.out.println("Задач нет");
         }
         System.out.println("Незавершённые задачи:");
-        for(Task task:tasks){
-            if (task.isCompleted()==false){
+        for (Task task : tasks) {
+            if (task.isCompleted() == false) {
                 System.out.println(task.getTitle());
             }
         }
@@ -134,26 +142,26 @@ public class Collection {
     }
 
     public List<Task> getTasksByTitle(List<Task> tasks, String title) {
-        List<Task> result=new ArrayList<>();
-        for(Task task: tasks){
-            if(task.getTitle()==title){
-result.add(task);
+        List<Task> result = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getTitle() == title) {
+                result.add(task);
             }
         }
         return result;
     }
 
     public static void printStudents(List<Student> students) {
-        for(Student student: students){
+        for (Student student : students) {
             System.out.println(student);
         }
     }
 
     public List<Student> getStudentsOlderThan(List<Student> students, int age) {
-        List<Student> result= new ArrayList<>();
-        for (Student student: students){
-            if(student.getAge()>age){
-                 result.add(student);
+        List<Student> result = new ArrayList<>();
+        for (Student student : students) {
+            if (student.getAge() > age) {
+                result.add(student);
 
             }
         }
@@ -161,8 +169,8 @@ result.add(task);
     }
 
     public static void printProductsWithZeroQuantity(List<Product> products) {
-        for (Product product: products){
-            if(product.getQuantity()==0){
+        for (Product product : products) {
+            if (product.getQuantity() == 0) {
                 System.out.println(product);
             }
         }
@@ -170,34 +178,34 @@ result.add(task);
     }
 
     public int getTotalQuantityOfProducts(List<Product> products) {
-        int result=0;
-        for (Product product: products){
-            result=result+product.getQuantity();
+        int result = 0;
+        for (Product product : products) {
+            result = result + product.getQuantity();
         }
         return result;
     }
 
     public static void printStudentsWithWorstAttendance(List<AttendanceStudent> students) {
-        int equal=100;
-        for (AttendanceStudent attendanceStudent: students){
-            if(Integer.parseInt(attendanceStudent.getAttendance())<equal){
-                equal=Integer.parseInt(attendanceStudent.getAttendance());
+        int equal = 100;
+        for (AttendanceStudent attendanceStudent : students) {
+            if (Integer.parseInt(attendanceStudent.getAttendance()) < equal) {
+                equal = Integer.parseInt(attendanceStudent.getAttendance());
             }
         }
         System.out.println("Наихудшая успеваемость: ");
-        for  (AttendanceStudent attendanceStudent1 : students){
-            if(equal==Integer.parseInt(attendanceStudent1.getAttendance())){
+        for (AttendanceStudent attendanceStudent1 : students) {
+            if (equal == Integer.parseInt(attendanceStudent1.getAttendance())) {
                 System.out.println(attendanceStudent1);
             }
         }
     }
 
     public double getAverageAttendance(List<AttendanceStudent> students) {
-        int sum=0;
-        for (AttendanceStudent attendanceStudent: students){
-            sum=sum+Integer.parseInt(attendanceStudent.getAttendance());
+        int sum = 0;
+        for (AttendanceStudent attendanceStudent : students) {
+            sum = sum + Integer.parseInt(attendanceStudent.getAttendance());
         }
 
-        return sum/students.size();
+        return sum / students.size();
     }
 }
