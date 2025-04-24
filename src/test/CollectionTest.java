@@ -21,7 +21,8 @@ public class CollectionTest {
   public static void main(String[] args) {
     Collection collection = new Collection();
 
-    // Тест 1: testFindMaxElement
+    // Тест 1: testFind
+    // MaxElement
     List<Integer> list1 = Arrays.asList(1, 3, 2, 5, 4);
     int expectedMaxResult = 5;
     int actualMaxResult = collection.findMaxElement(list1);
@@ -181,13 +182,16 @@ public class CollectionTest {
     }
 
     // Тест 13: testPrintOrdersWithMaxAmount
+    // В этом тесте вывод на консоль, поэтому просто вызываем метод
+    System.out.println("Тест 13 (printOrdersWithMaxAmount) выполнен.");
     List<Order> orders = Arrays.asList(
         new Order(1, "Customer1", 100),
         new Order(2, "Customer2", 200),
         new Order(3, "Customer3", 200)
     );
-    // В этом тесте вывод на консоль, поэтому просто вызываем метод
-    System.out.println("Тест 13 (printOrdersWithMaxAmount) выполнен.");
+    Collection.printOrdersWithMaxAmount(orders);
+
+
 
     // Тест 14: testGetTotalAmountOfOrders
     List<Order> orders2 = Arrays.asList(
@@ -206,13 +210,15 @@ public class CollectionTest {
     }
 
     // Тест 15: testPrintIncompleteTasks
+    // В этом тесте вывод на консоль, поэтому просто вызываем метод
+    System.out.println("Тест 15 (printIncompleteTasks) выполнен.");
     List<Task> tasks = Arrays.asList(
         new Task(1, "Task1", false),
         new Task(2, "Task2", true),
         new Task(3, "Task3", false)
     );
-    // В этом тесте вывод на консоль, поэтому просто вызываем метод
-    System.out.println("Тест 15 (printIncompleteTasks) выполнен.");
+    Collection.printIncompleteTasks(tasks);
+
 
     // Тест 16: testGetTasksByTitle
     List<Task> tasks2 = Arrays.asList(
@@ -233,13 +239,15 @@ public class CollectionTest {
     }
 
     // Тест 17: testPrintStudents
+    // В этом тесте вывод на консоль, поэтому просто вызываем метод
+    System.out.println("Тест 17 (printStudents) выполнен.");
     List<Student> students = Arrays.asList(
         new Student("Student1", 20),
         new Student("Student2", 22),
         new Student("Student3", 24)
     );
-    // В этом тесте вывод на консоль, поэтому просто вызываем метод
-    System.out.println("Тест 17 (printStudents) выполнен.");
+    Collection.printStudents(students);
+
 
     // Тест 18: testGetStudentsOlderThan
     List<Student> students2 = Arrays.asList(
@@ -261,13 +269,14 @@ public class CollectionTest {
     }
 
     // Тест 19: testPrintProductsWithZeroQuantity
+    // В этом тесте вывод на консоль, поэтому просто вызываем метод
+    System.out.println("Тест 19 (printProductsWithZeroQuantity) выполнен.");
     List<Product> products = Arrays.asList(
         new Product(1, "Product1", 0),
         new Product(2, "Product2", 10),
         new Product(3, "Product3", 0)
     );
-    // В этом тесте вывод на консоль, поэтому просто вызываем метод
-    System.out.println("Тест 19 (printProductsWithZeroQuantity) выполнен.");
+   Collection.printProductsWithZeroQuantity(products);
 
     // Тест 20: testGetTotalQuantityOfProducts
     List<Product> products2 = Arrays.asList(
@@ -285,13 +294,15 @@ public class CollectionTest {
     }
 
     // Тест 21: testPrintStudentsWithWorstAttendance
+    // В этом тесте вывод на консоль, поэтому просто вызываем метод
+    System.out.println("Тест 21 (printStudentsWithWorstAttendance) выполнен.");
     List<AttendanceStudent> attendanceStudents = Arrays.asList(
         new AttendanceStudent("Student1", "50"),
         new AttendanceStudent("Student2", "30"),
         new AttendanceStudent("Student3", "30")
     );
-    // В этом тесте вывод на консоль, поэтому просто вызываем метод
-    System.out.println("Тест 21 (printStudentsWithWorstAttendance) выполнен.");
+    Collection.printStudentsWithWorstAttendance(attendanceStudents);
+
 
     // Тест 22: testGetAverageAttendance
     List<AttendanceStudent> attendanceStudents2 = Arrays.asList(
