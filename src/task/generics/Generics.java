@@ -7,14 +7,14 @@ public class Generics {
     public static <T> T getFirstElement(List<T> list) {
         // Реализуйте метод getFirstElement, который принимает список обобщенного типа T и возвращает первый элемент этого списка.
         // Если список пуст или равен null, метод должен выбрасывать исключение IllegalArgumentException с соответствующим сообщением.
-        if (list.isEmpty() || list == null) {
+        if (list == null || list.isEmpty()) {
             throw new IllegalArgumentException("Список не может быть пуст или равен null");
         }
         return list.getFirst();
     }
 
     public static <T> T getLastElement(List<T> list) {
-        if (list.isEmpty() || list == null) {
+        if (list == null || list.isEmpty()) {
             throw new IllegalArgumentException("Список не может быть пуст или равен null");
         }
         return list.getLast();
@@ -31,7 +31,7 @@ public class Generics {
     }
 
     public static <T> List<T> getUniqueElements(List<T> list) {
-        if (list.isEmpty() || list == null) {
+        if (list == null || list.isEmpty()) {
             throw new IllegalArgumentException("Список не может быть пуст или равен null");
         }
         Set<T> unique = new LinkedHashSet<>(list);

@@ -10,6 +10,7 @@ public class Collection {
 
     public List<Integer> removeDuplicates(List<Integer> list) {
         Set<Integer> set = new HashSet<>(list);
+
         return new ArrayList<>(set);
     }
 
@@ -20,23 +21,12 @@ public class Collection {
     }
 
     public boolean containsElement(Set<Integer> set, int element) {
-        Set<Integer> set1 = new HashSet<>(set);
-        for (Integer elements : set1) {
-            if (elements == element) {
-                return true;
-            }
-        }
-        return false;
+        return set.contains(element);
     }
 
     public Set<Integer> findIntersection(Set<Integer> set1, Set<Integer> set2) {
-        Set<Integer> result = new HashSet<>();
-        for (Integer elements : set1) {
-            if (set2.contains(elements)) {
-                result.add(elements);
-            }
-        }
-        return result;
+        set1.retainAll(set2);
+        return set1;
     }
 
     public Set<Integer> removeCommonElements(Set<Integer> set1, Set<Integer> set2) {
@@ -48,10 +38,7 @@ public class Collection {
     }
 
     public boolean containsKey(Map<String, Integer> map, String key) {
-        if (map.containsKey(key)) {
-            return true;
-        }
-        return false;
+        return map.containsKey(key);
     }
 
     public List<Integer> getValuesByKey(Map<String, List<Integer>> map, String key) {
@@ -100,7 +87,7 @@ public class Collection {
             System.out.println("Список заказов пуст");
             return;
         }
-        int maxAmount = orders.get(0).getTotalAmount();
+        int maxAmount = orders.getFirst().getTotalAmount();
         for (Order order : orders) {
             if (order.getTotalAmount() > maxAmount) {
                 maxAmount = order.getTotalAmount();
@@ -134,7 +121,7 @@ public class Collection {
         }
         System.out.println("Незавершённые задачи:");
         for (Task task : tasks) {
-            if (task.isCompleted() == false) {
+            if (!task.isCompleted()) {
                 System.out.println(task.getTitle());
             }
         }
@@ -144,7 +131,7 @@ public class Collection {
     public List<Task> getTasksByTitle(List<Task> tasks, String title) {
         List<Task> result = new ArrayList<>();
         for (Task task : tasks) {
-            if (task.getTitle() == title) {
+            if (task.getTitle().equals(title)) {
                 result.add(task);
             }
         }
@@ -180,7 +167,7 @@ public class Collection {
     public int getTotalQuantityOfProducts(List<Product> products) {
         int result = 0;
         for (Product product : products) {
-            result = result + product.getQuantity();
+            result += product.getQuantity();
         }
         return result;
     }
@@ -203,9 +190,9 @@ public class Collection {
     public double getAverageAttendance(List<AttendanceStudent> students) {
         int sum = 0;
         for (AttendanceStudent attendanceStudent : students) {
-            sum = sum + Integer.parseInt(attendanceStudent.getAttendance());
+            sum += Integer.parseInt(attendanceStudent.getAttendance());
         }
 
-        return sum / students.size();
+        return (double) sum / students.size();
     }
 }

@@ -1,7 +1,5 @@
 package task.collection;
 
-import java.util.List;
-
 public class Order {
     //Учет заказов:
 //    - Создайте класс Order с полями id, customer и totalAmount.

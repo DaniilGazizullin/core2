@@ -1,5 +1,8 @@
 package task.collection;
 
+import java.util.Arrays;
+import java.util.List;
+
 //Управление задачами:
 //    - Создайте класс Task с полями id, title и completed.
 //    - Создайте метод, который будет принимать список задач и выводить только незавершенные задачи на экран.
@@ -36,4 +39,24 @@ public class Task {
                 '}';
     }
 
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Task task)) return false;
+
+        return id == task.id && isCompleted == task.isCompleted && title.equals(task.title);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + title.hashCode();
+        result = 31 * result + Boolean.hashCode(isCompleted);
+        return result;
+    }
 }
+
+
+
+
+
+

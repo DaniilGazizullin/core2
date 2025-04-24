@@ -25,4 +25,19 @@ public class Student {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+        return age == student.age && name.equals(student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = age;
+        result = 31 * result + name.hashCode();
+        return result;
+    }
 }
